@@ -17,7 +17,8 @@ var Hello = React.createClass({
             onChange={this.changeName}
             value={this.state.name} />
         </form>
-        <p>You have ${(3500/63115200) * this.state.name}!</p>
+        <p>You have ${roundpls((3500/63115200) * this.state.name, 4)}!</p>
+        <p>You have {roundpls(this.state.name/63115200, 5)} infinims! That's {roundpls(this.state.name/63115200 * 100, 5)}% of the way there!</p>
       </div>
     )
   }
