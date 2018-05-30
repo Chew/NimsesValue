@@ -1,0 +1,26 @@
+var Hello = React.createClass({
+  getInitialState: function() {
+    return {
+      name: '0'
+    }
+  },
+  changeName: function(e) {
+    this.setState({
+      name: e.target.value
+    })
+  },
+  render: function() {
+    return (
+      <div>
+        <form>
+          <input
+            onChange={this.changeName}
+            value={this.state.name} />
+        </form>
+        <p>You have ${(3500/63115200) * this.state.name}!</p>
+      </div>
+    )
+  }
+});
+
+ReactDOM.render(<Hello />, document.getElementById('app'));
