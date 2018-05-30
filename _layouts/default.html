@@ -5,27 +5,30 @@
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
   {% include reactjs.html %}
+  {% include fonts.html %}
   <link rel="stylesheet" href="css/index.css" type="text/css" />
 </head>
 
 <body>
-  <header>
-    <h1>How much is your Nimses worth?</h1>
-  </header>
+  <div id="content">
+    <header>
+      <h1>How much is your Nimses worth?</h1>
+    </header>
 
-  <nav>
-    <ul>
-      <li>Home</li>
-    </ul>
-  </nav>
+    <nav>
+      <ul>
+        <li>Home</li>
+      </ul>
+    </nav>
 
-  <section id="main">
-    <p>1 Infinim = 63,115,200 nims = $3500</p>
-    <p>Enter your nim count</p>
-    <div id='app'></div>
-  </section>
+    <section id="main">
+      <p>1 Infinim = 63,115,200 nims = $3500</p>
+      <p>Enter your nim count</p>
+      <div id='app'></div>
+    </section>
 
-  <script src="js/index.js"></script>
+    <script src="js/index.js"></script>
+  </div>
 </body>
 
 </html>
