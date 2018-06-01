@@ -1,3 +1,6 @@
+---
+---
+
 var Hello = React.createClass({
   getInitialState: function() {
     return {
