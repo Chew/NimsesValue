@@ -4,7 +4,7 @@
 var Hello = React.createClass({
   getInitialState: function() {
     return {
-      name: '0'
+      name: ''
     }
   },
   changeName: function(e) {
@@ -17,6 +17,7 @@ var Hello = React.createClass({
       <div>
         <form>
           <input
+            placeholder="Enter nim count"
             onChange={this.changeName}
             value={this.state.name} />
         </form>
