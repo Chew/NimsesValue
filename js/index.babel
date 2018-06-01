@@ -4,7 +4,9 @@
 var Hello = React.createClass({
   getInitialState: function() {
     return {
-      name: ''
+      name: '',
+      seconds: 0,
+      auto: 'checked'
     }
   },
   changeName: function(e) {
@@ -12,9 +14,45 @@ var Hello = React.createClass({
       name: e.target.value
     })
   },
+  updateauto: function(e) {
+    if(this.state.auto == 'checked') {
+      this.setState({
+        auto: 'off'
+      })
+    } else {
+      this.setState({
+        auto: 'checked'
+      })
+    }
+  },
+  tick: function() {
+    if(this.state.seconds >= 59 && this.state.auto == 'checked') {
+      this.addOne()
+    }
+    this.setState(prevState => ({
+      seconds: prevState.seconds + 1
+    }))
+  },
+  addOne: function() {
+    this.setState(prevState => ({
+      name: Number(prevState.name) + 1,
+      seconds: -1
+    }));
+  },
+  componentDidMount: function() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
   render: function() {
     return (
       <div>
+        <input
+          type="checkbox"
+          name="updateauto"
+          onChange={this.updateauto}
+          checked={this.state.auto == 'checked'} /> Auto-add 1 nims every minute?
         <form>
           <input
             placeholder="Enter nim count"
